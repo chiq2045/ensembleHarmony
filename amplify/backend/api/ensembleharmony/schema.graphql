@@ -1,0 +1,36 @@
+type Ensemble @model @key(name: "byDirector", fields: ["directorID"]){
+  id: ID!
+  name: String!
+  videos: [Video] @connection(keyName: "byEnsemble", fields: ["id"])
+  directorID: ID!
+  director: Director! @connection(fields: ["directorID"])
+  members: [Member] @connection(keyName: "byEnsemble", fields: ["id"])
+}
+
+interface Video @model @key(name: "byEnsemble", fields: ["ensembleID"]) {
+  id: ID!
+  title: String!
+  ensembleID: ID!
+  ensemble: Ensemble! @connection(fields: ["ensembleID"])
+}
+
+interface User @model {
+  id: ID!
+  name: String!
+  videos: [Video] @connection(name: "byUser", fields: ["id"])
+}
+
+type Director implements User @model {
+  id: ID!
+  name: String!
+  videos: [Video] @connection(nam: "byUser", fields: ["id"])
+  ensembles: [Ensemble] @connection(keyName: "byDirector", fields: ["id"])
+}
+
+type Member implements User @model @key(name: "byEnsemble", fields: ["ensembleID"]) {
+  id: ID!
+  name: String!
+  videos: [Video] @connection(nam: "byUser", fields: ["id"])
+  ensembleID: ID!
+  ensemble: [Ensemble] @connection(keyName: "byEnsemble", fields: ["ensembleID"])
+}
