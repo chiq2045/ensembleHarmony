@@ -1,9 +1,7 @@
-type Ensemble @model @key(name: "byDirector", fields: ["directorID"]) {
+type Ensemble @model {
   id: ID!
   name: String!
   videos: [Video] @connection(keyName: "byEnsemble", fields: ["id"])
-  directorID: ID!
-  director: Director! @connection(fields: ["directorID"])
   members: [Member] @connection(keyName: "byEnsemble", fields: ["id"])
 }
 
@@ -29,7 +27,6 @@ interface User {
 type Director implements User @model {
   id: ID!
   name: String!
-  ensembles: [Ensemble] @connection(keyName: "byDirector", fields: ["id"])
 }
 
 type Member implements User @model @key(name: "byEnsemble", fields: ["ensembleID"]) {

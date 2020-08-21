@@ -17,16 +17,6 @@ export const getEnsemble = /* GraphQL */ `
         }
         nextToken
       }
-      directorID
-      director {
-        id
-        name
-        ensembles {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       members {
         items {
           id
@@ -56,13 +46,6 @@ export const listEnsembles = /* GraphQL */ `
         videos {
           nextToken
         }
-        directorID
-        director {
-          id
-          name
-          createdAt
-          updatedAt
-        }
         members {
           nextToken
         }
@@ -84,13 +67,6 @@ export const getVideo = /* GraphQL */ `
         name
         videos {
           nextToken
-        }
-        directorID
-        director {
-          id
-          name
-          createdAt
-          updatedAt
         }
         members {
           nextToken
@@ -132,7 +108,6 @@ export const listVideos = /* GraphQL */ `
         ensemble {
           id
           name
-          directorID
           createdAt
           updatedAt
         }
@@ -157,16 +132,6 @@ export const getDirector = /* GraphQL */ `
     getDirector(id: $id) {
       id
       name
-      ensembles {
-        items {
-          id
-          name
-          directorID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
       createdAt
       updatedAt
     }
@@ -182,9 +147,6 @@ export const listDirectors = /* GraphQL */ `
       items {
         id
         name
-        ensembles {
-          nextToken
-        }
         createdAt
         updatedAt
       }
@@ -213,7 +175,6 @@ export const getMember = /* GraphQL */ `
         items {
           id
           name
-          directorID
           createdAt
           updatedAt
         }

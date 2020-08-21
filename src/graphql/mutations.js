@@ -20,16 +20,6 @@ export const createEnsemble = /* GraphQL */ `
         }
         nextToken
       }
-      directorID
-      director {
-        id
-        name
-        ensembles {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       members {
         items {
           id
@@ -64,16 +54,6 @@ export const updateEnsemble = /* GraphQL */ `
           updatedAt
         }
         nextToken
-      }
-      directorID
-      director {
-        id
-        name
-        ensembles {
-          nextToken
-        }
-        createdAt
-        updatedAt
       }
       members {
         items {
@@ -110,16 +90,6 @@ export const deleteEnsemble = /* GraphQL */ `
         }
         nextToken
       }
-      directorID
-      director {
-        id
-        name
-        ensembles {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       members {
         items {
           id
@@ -150,13 +120,6 @@ export const createVideo = /* GraphQL */ `
         name
         videos {
           nextToken
-        }
-        directorID
-        director {
-          id
-          name
-          createdAt
-          updatedAt
         }
         members {
           nextToken
@@ -199,13 +162,6 @@ export const updateVideo = /* GraphQL */ `
         videos {
           nextToken
         }
-        directorID
-        director {
-          id
-          name
-          createdAt
-          updatedAt
-        }
         members {
           nextToken
         }
@@ -247,13 +203,6 @@ export const deleteVideo = /* GraphQL */ `
         videos {
           nextToken
         }
-        directorID
-        director {
-          id
-          name
-          createdAt
-          updatedAt
-        }
         members {
           nextToken
         }
@@ -288,16 +237,6 @@ export const createDirector = /* GraphQL */ `
     createDirector(input: $input, condition: $condition) {
       id
       name
-      ensembles {
-        items {
-          id
-          name
-          directorID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
       createdAt
       updatedAt
     }
@@ -311,16 +250,6 @@ export const updateDirector = /* GraphQL */ `
     updateDirector(input: $input, condition: $condition) {
       id
       name
-      ensembles {
-        items {
-          id
-          name
-          directorID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
       createdAt
       updatedAt
     }
@@ -334,16 +263,6 @@ export const deleteDirector = /* GraphQL */ `
     deleteDirector(input: $input, condition: $condition) {
       id
       name
-      ensembles {
-        items {
-          id
-          name
-          directorID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
       createdAt
       updatedAt
     }
@@ -373,7 +292,6 @@ export const createMember = /* GraphQL */ `
         items {
           id
           name
-          directorID
           createdAt
           updatedAt
         }
@@ -409,7 +327,6 @@ export const updateMember = /* GraphQL */ `
         items {
           id
           name
-          directorID
           createdAt
           updatedAt
         }
@@ -445,7 +362,6 @@ export const deleteMember = /* GraphQL */ `
         items {
           id
           name
-          directorID
           createdAt
           updatedAt
         }
